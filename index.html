@@ -1,0 +1,57 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvoids</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="myFrame" src="https://effective-space-rotary-phone-jvqrpq9w455hpp66-26301.app.github.dev/" frameborder="0"></iframe>
+
+    <script>
+        var iframe = document.getElementById("myFrame");
+        iframe.onload = function() {
+            var title = iframe.contentDocument.title;
+            var favicon = getFavicon();
+            document.title = title;
+            changeFavicon(favicon);
+        };
+
+        function getFavicon() {
+            var favicon = null;
+            var nodeList = iframe.contentDocument.head.querySelectorAll('link[rel="shortcut icon"], link[rel="icon"]');
+            if (nodeList.length > 0) {
+                favicon = nodeList[0].href;
+            }
+            return favicon;
+        }
+
+        function changeFavicon(favicon) {
+            var oldFavicon = document.querySelector('link[rel="shortcut icon"], link[rel="icon"]');
+            if (oldFavicon) {
+                oldFavicon.parentNode.removeChild(oldFavicon);
+            }
+            var link = document.createElement('link');
+            link.type = 'image/x-icon';
+            link.rel = 'icon';
+            link.href = favicon;
+            document.head.appendChild(link);
+        }
+    </script>
+
+
+
+</body></html>
